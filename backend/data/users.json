@@ -105,10 +105,32 @@
     "quizzesCompleted": 0,
     "highestStreak": 0,
     "createdAt": "2026-04-16T09:21:59.838Z",
-    "updatedAt": "2026-04-16T09:21:59.838Z",
+    "updatedAt": "2026-04-19T12:48:04.529Z",
     "__v": 0,
-    "history": [],
-    "notifications": []
+    "notifications": [
+      {
+        "message": "Welcome to your new magical dashboard! 🪄",
+        "type": "info",
+        "read": false,
+        "createdAt": "2026-04-19T12:48:04.528Z",
+        "_id": "69e4cf040a465b58c25c16ec"
+      },
+      {
+        "message": "Try your first Quick Play quiz to test your magic! ⚡",
+        "type": "info",
+        "read": false,
+        "createdAt": "2026-04-19T12:43:04.528Z",
+        "_id": "69e4cf040a465b58c25c16ed"
+      },
+      {
+        "message": "Check out the Global Leaderboard to see top Wizards! 🏆",
+        "type": "success",
+        "read": false,
+        "createdAt": "2026-04-19T11:48:04.528Z",
+        "_id": "69e4cf040a465b58c25c16ee"
+      }
+    ],
+    "history": []
   },
   {
     "_id": "69e23d6694747b476279e038",
@@ -248,6 +270,43 @@
     ],
     "createdAt": "2026-04-18T19:39:44.228Z",
     "updatedAt": "2026-04-18T19:39:45.073Z",
+    "__v": 0
+  },
+  {
+    "_id": "69e4cf3f0a465b58c25c1731",
+    "fullName": "Adaarsh",
+    "email": "adarsh@gmail.com",
+    "avatar": "",
+    "totalScore": 0,
+    "weeklyScore": 0,
+    "quizzesCompleted": 0,
+    "highestStreak": 0,
+    "history": [],
+    "notifications": [
+      {
+        "message": "Welcome to your new magical dashboard! 🪄",
+        "type": "info",
+        "read": true,
+        "createdAt": "2026-04-19T12:49:04.692Z",
+        "_id": "69e4cf400a465b58c25c1768"
+      },
+      {
+        "message": "Try your first Quick Play quiz to test your magic! ⚡",
+        "type": "info",
+        "read": true,
+        "createdAt": "2026-04-19T12:44:04.692Z",
+        "_id": "69e4cf400a465b58c25c1769"
+      },
+      {
+        "message": "Check out the Global Leaderboard to see top Wizards! 🏆",
+        "type": "success",
+        "read": true,
+        "createdAt": "2026-04-19T11:49:04.692Z",
+        "_id": "69e4cf400a465b58c25c176a"
+      }
+    ],
+    "createdAt": "2026-04-19T12:49:03.859Z",
+    "updatedAt": "2026-04-19T12:49:08.324Z",
     "__v": 0
   }
 ]

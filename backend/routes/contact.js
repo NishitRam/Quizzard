@@ -23,15 +23,16 @@ const isOnline = () => mongoose.connection.readyState === 1;
 // @access  Public
 router.post('/', async (req, res) => {
   const { name, email, subject, message } = req.body;
+  const finalSubject = subject || 'General Magic Inquiry';
 
-  if (!name || !email || !subject || !message) {
-    return res.status(400).json({ success: false, error: 'Please provide all required fields' });
+  if (!name || !email || !message) {
+    return res.status(400).json({ success: false, error: 'Please provide name, email, and message.' });
   }
 
   const messageData = {
     name: name.trim(),
     email: email.trim().toLowerCase(),
-    subject: subject.trim(),
+    subject: finalSubject,
     message: message.trim(),
     timestamp: new Date().toISOString(),
     storedVia: isOnline() ? 'Cloud' : 'Local Ledger'
@@ -52,7 +53,7 @@ router.post('/', async (req, res) => {
         from: `"Quizzard Portal" <${process.env.SMTP_USER}>`,
         to: process.env.EMAIL_RECEIVER || 'admin@quizzard.com',
         replyTo: email,
-        subject: `✨ New Magic Message (${messageData.storedVia}): ${subject}`,
+        subject: `✨ New Magic Message (${messageData.storedVia}): ${finalSubject}`,
         html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong> ${message}</p>`,
       };
       transporter.sendMail(mailOptions).catch(err => console.error('❌ Notification failed:', err.message));

@@ -194,7 +194,10 @@ export default function Landing() {
                           e.target.reset();
                         }
                       })
-                      .catch(() => alert('Network error. Check your connection.'))
+                      .catch((err) => {
+                        const errMsg = err.response?.data?.error || 'Failed to send message. Please check your connection.';
+                        alert(errMsg);
+                      })
                       .finally(() => setIsCasting(false));
                   }}>
                     <input type="text" name="name" placeholder="Full Name" required />

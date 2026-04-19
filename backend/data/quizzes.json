@@ -606,5 +606,44 @@
     "createdAt": "2026-04-18T15:34:00.985Z",
     "updatedAt": "2026-04-18T15:34:00.985Z",
     "__v": 0
+  },
+  {
+    "_id": "69e4cff90a465b58c25c1786",
+    "subject": "JavaScript",
+    "title": "Test Quiz",
+    "description": "Test run",
+    "difficulty": "Beginner",
+    "iconColor": "#4ade80",
+    "authorName": "Adaarsh",
+    "authorId": "69e4cf3f0a465b58c25c1731",
+    "questions": [
+      {
+        "questionText": "Q1",
+        "options": [
+          "true",
+          "fal",
+          "fls",
+          "false"
+        ],
+        "correctAnswer": "true",
+        "explanation": "The correct answer is: true",
+        "_id": "69e4cff90a465b58c25c1787"
+      },
+      {
+        "questionText": "Q2",
+        "options": [
+          "fal",
+          "fals",
+          "false",
+          "true"
+        ],
+        "correctAnswer": "true",
+        "explanation": "The correct answer is: true",
+        "_id": "69e4cff90a465b58c25c1788"
+      }
+    ],
+    "createdAt": "2026-04-19T12:52:09.016Z",
+    "updatedAt": "2026-04-19T12:52:09.016Z",
+    "__v": 0
   }
 ]
