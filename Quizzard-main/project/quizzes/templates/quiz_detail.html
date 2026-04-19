@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Detail</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .quiz-detail {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #007bff;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .quiz-description {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+    }
+
+    h5 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .list-group {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .list-group-item {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+    }
+
+    .list-group-item strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .btn {
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-top: 20px;
+      margin-right: 10px;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-secondary {
+      background-color: #6c757d;
+    }
+
+    .btn-secondary:hover {
+      background-color: #5a6268;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-5 pt-4">
+    <div class="quiz-detail">
+      <h2 class="text-center">{{ quiz.title }}</h2>
+      <p class="text-center text-muted">Created by: {{ quiz.author.username }} | Created on:
+        {{ quiz.created_at|date:"F j, Y" }}</p>
+
+      <div class="quiz-description my-4">
+        <h5>Description:</h5>
+        <p>{{ quiz.description }}</p>
+      </div>
+
+      <div class="quiz-questions my-4">
+        <h5>Number of Questions: {{ quiz.no_of_questions }}</h5>
+      </div>
+
+      <div class="button-container">
+        <a href="{% url 'participate_in_quiz' quiz.id %}" class="btn btn-primary">Participate in Quiz</a>
+        <a href="{% url 'home_view' %}" class="btn btn-secondary">Back to Home</a>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

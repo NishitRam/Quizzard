@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block title %}Profile Page{% endblock %}
+
+{% block body %}
+{% include "navbar.html" %}
+<div class="container mt-5 pt-4">
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <div class="card mb-4 box-shadow">
+        <div class="card-body" style="padding: 20px;">
+          <a href="#">
+            {% if user.UserProfileModel_user.has_profile_pic %}
+            <img src="{{ user.UserProfileModel_user.profile_picture.url }}" class="profile-img rounded-circle mb-3"
+              alt="Profile Image"
+              style="width: 150px; height: 150px; object-fit: cover; border: 1px solid rgb(224, 211, 211);">
+            {% else %}
+            <img src="user.png" class="profile-img rounded-circle mb-3" alt="Profile Image"
+              style="width: 150px; height: 150px; object-fit: cover; border: 1px solid rgb(224, 211, 211);">
+            {% endif %}
+          </a>
+          <h2 class="mt-2">{{ user.username }}</h2>
+          <p><strong>{{ user.first_name }} {{ user.last_name }}</strong><br />{{ user.UserProfileModel_user.bio }}</p>
+
+          <div class="row text-center mb-3">
+            <div class="col-12 mb-2">
+              <div class="card" style="margin: 0; padding: 10px;">
+                <div class="card-body" style="padding: 10px;">
+                  <strong>{{ data.quizzes_created_count }}</strong><br>Quizzes Created
+                </div>
+              </div>
+            </div>
+            <div class="col-12 mb-2">
+              <div class="card" style="margin: 0; padding: 10px;">
+                <div class="card-body" style="padding: 10px;">
+                  <strong>{{ data.quizzes_participated_count }}</strong><br>Quizzes Participated
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="card" style="margin: 0; padding: 10px;">
+                <div class="card-body" style="padding: 10px;">
+                  <strong>{{ data.correct_answers_count }}</strong><br>Correct Answers
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <h5>Achievements</h5>
+            <p>{{ data.achievement }}</p>
+          </div>
+
+          {% if data.is_user_profile %}
+          <a href="{% url 'update_user_profile' %}" class="btn btn-outline-primary btn-block mt-3">Edit Profile</a>
+          <a href="{% url 'update_password_view' %}" class="btn btn-outline-info btn-block mt-3">Update Password</a>
+          <a href="{% url 'delete_profile_view' %}" class="btn btn-outline-danger btn-block mt-3">Delete Account</a>
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <div class="col-md-8">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="created-tab" data-toggle="tab" href="#created" role="tab"
+            aria-controls="created" aria-selected="true">Created Quizzes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="participated-tab" data-toggle="tab" href="#participated" role="tab"
+            aria-controls="participated" aria-selected="false">Participated Quizzes</a>
+        </li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="created" role="tabpanel" aria-labelledby="created-tab">
+          <div class="row mt-4">
+            {% if data.quizzes_created_count != 0 %}
+            {% for quiz in data.user_created %}
+            <!-- Quiz Created -->
+            <div class="col-12 mb-4">
+              <div class="card post-card">
+                <a href="{% url 'quiz_detail' quiz.id %}">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ quiz.title }}</h5>
+                    <p class="card-text">{{ quiz.description }}</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="col-12 mt-4 text-center">
+              <strong>No Quizzes Created Yet...</strong>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        <div class="tab-pane fade" id="participated" role="tabpanel" aria-labelledby="participated-tab">
+          <div class="row mt-4">
+            <!-- Participated Quizzes -->
+            {% if data.quizzes_participated_count != 0 %}
+            {% for participation in data.user_participated %}
+            <!-- Quiz Participated -->
+            <div class="col-12 mb-4">
+              <div class="card post-card">
+                <a href="{% url 'quiz_detail' participation.quiz.id %}">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ participation.quiz.title }}</h5>
+                    <p class="card-text">{{ participation.quiz.description }}</p>
+                    <p class="card-text"><small>Score: {{ participation.score }}</small></p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="col-12 mt-4 text-center">
+              <strong>No Quizzes Participated Yet...</strong>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

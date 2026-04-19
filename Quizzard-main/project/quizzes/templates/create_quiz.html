@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(45deg, #f4f4f9, #e0e0e0);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    form {
+      background-color: rgba(178, 153, 153, 0.9);
+      background-image: url('/quizzes/this.jpeg'); 
+      background-size: cover; 
+      background-position: center;
+      padding: 100px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      max-width: 220px;
+      width: 100%;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    input[type="text"]:focus,
+    textarea:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      outline: none;
+    }
+    input[type="file"] {
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      width: 100%;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    .home-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .home-button a {
+      text-decoration: none;
+    }
+  
+      .home-button button {
+      background-color: #6c757d;
+    }
+
+    .home-button button:hover {
+      background-color: #5a6268;
+    }
+  </style>
+</head>
+
+<body>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h1>Create a New Quiz</h1>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required></textarea>
+
+    <label for="image">Image:</label>
+    <input type="file" id="image" name="image" required>
+
+    <button type="submit">Create Quiz</button>
+
+    <div class="home-button">
+      <a href="{% url 'home_view' %}">
+        <button type="button">Return to Home Page</button>
+      </a>
+    </div>
+  </form>
+</body>
+
+</html>

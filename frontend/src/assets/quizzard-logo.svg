@@ -1,0 +1,47 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="60" cy="60" r="58" fill="url(#gradient1)" stroke="url(#gradient2)" stroke-width="4"/>
+  
+  <!-- Wizard Hat -->
+  <path d="M60 25 L45 55 L75 55 Z" fill="#764ba2"/>
+  <ellipse cx="60" cy="55" rx="15" ry="3" fill="#667eea"/>
+  <path d="M60 25 L45 55 L75 55 Z" fill="url(#hatGradient)" opacity="0.7"/>
+  
+  <!-- Stars on Hat -->
+  <circle cx="55" cy="40" r="1.5" fill="#FFD700"/>
+  <circle cx="62" cy="35" r="1" fill="#FFD700"/>
+  <circle cx="58" cy="48" r="1.2" fill="#FFD700"/>
+  
+  <!-- Letter Q -->
+  <circle cx="60" cy="75" r="15" stroke="#FFFFFF" stroke-width="5" fill="none"/>
+  <line x1="70" y1="85" x2="75" y2="90" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+  
+  <!-- Inner glow -->
+  <circle cx="60" cy="75" r="12" fill="url(#innerGlow)" opacity="0.3"/>
+  
+  <!-- Sparkles -->
+  <circle cx="30" cy="60" r="2" fill="#FFD700" opacity="0.8"/>
+  <circle cx="90" cy="60" r="2" fill="#FFD700" opacity="0.8"/>
+  <circle cx="60" cy="30" r="1.5" fill="#FFD700" opacity="0.8"/>
+  <circle cx="60" cy="100" r="1.5" fill="#FFD700" opacity="0.8"/>
+  
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#764ba2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#667eea;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="hatGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#764ba2;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#667eea;stop-opacity:0.8" />
+    </linearGradient>
+    <radialGradient id="innerGlow">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#667eea;stop-opacity:0.2" />
+    </radialGradient>
+  </defs>
+</svg>

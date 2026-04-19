@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+
+{% block body %}
+{% include "navbar.html" %}
+<div class="container mt-4">
+  <div class="col-12">
+    <!-- Advertisement space -->
+      <div class="col-md-12">
+        <div class="advertisement">
+          <img src="/media/final.png" class="img-fluid" alt="Advertisement 1">
+        </div>
+      </div>
+    
+    <!-- Create Quiz Button -->
+    <div class="col-12 mb-4">
+      <a href="{% url 'create_quiz' %}" class="btn btn-primary create-quiz-btn">Create Quiz</a>
+    </div>
+    <!-- Quiz Cards -->
+    <div class="col-12">
+      <div class="row">
+        {% for quiz in quizzes %}
+        <div class="col-4 quiz-card">
+          <div class="card">
+            <img src="{{ quiz.image.url }}" class="card-img-top" alt="{{ quiz.title }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ quiz.title }}</h5>
+              <a href="{% url 'quiz_detail' quiz.id %}" class="btn btn-outline-primary btn-sm">View Quiz</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- {% include "footer.html" %} -->
+
+{% endblock %}
+<!-- -->
+

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Update Profile{% endblock %}
+
+{% block body %}
+{% include "navbar.html" %}
+<div class="container mt-5 pt-4">
+  <h2>Edit Profile</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group text-center">
+      <div class="profile-img-upload">
+        {% if user.UserProfileModel_user.has_profile_pic %}
+        <img src="{{user.UserProfileModel_user.profile_picture.url}}" class="profile-img"
+          style="border: 1px solid grey;" alt="Profile Image">
+        {% else %}
+        <img src="" class="profile-img" style="border: 1px solid grey;" alt="Profile Image">
+        {% endif %}
+        <input type="file" accept="image/*" name="profile_picture">
+      </div>
+      <small class="form-text text-muted">Click to change profile picture</small>
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" name="username" value="{{user.username}}">
+    </div>
+    <div class="form-group">
+      <label for="bio">Bio</label>
+      <textarea class="form-control" name="bio" rows="3">{{user.UserProfileModel_user.bio}}</textarea>
+    </div>
+    <div class="form-group">
+      <label for="username">First Name</label>
+      <input type="text" class="form-control" name="first_name" value="{{user.first_name}}">
+    </div>
+    <div class="form-group">
+      <label for="username">Last Name</label>
+      <input type="text" class="form-control" name="last_name" value="{{user.last_name}}">
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Participate in Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .quiz-participation {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #007bff;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .question {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+    }
+
+    h5 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .form-check {
+      margin-bottom: 10px;
+    }
+
+    .form-check-label {
+      margin-left: 8px;
+      cursor: pointer;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .btn {
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-top: 20px;
+      margin-right: 10px;
+      display: inline-block;
+    }
+
+    .btn-success {
+      background-color: #28a745;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-secondary {
+      background-color: #6c757d;
+    }
+
+    .btn-secondary:hover {
+      background-color: #5a6268;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-5 pt-4">
+    <div class="quiz-participation">
+      <h2 class="text-center">{{ quiz.title }}</h2>
+      <p class="text-center text-muted">Answer the questions below:</p>
+
+      <form method="post">
+        {% csrf_token %}
+        {% for question in quiz.QuestionModel_quiz.all %}
+        <div class="question my-4">
+          <h5>{{ forloop.counter }}. {{ question.text }}</h5>
+          <div class="choices">
+            {% for choice in question.ChoiceModel_question.all %}
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="question_{{ question.id }}" id="choice_{{ choice.id }}"
+                value="{{ choice.id }}">
+              <label class="form-check-label" for="choice_{{ choice.id }}">{{ choice.text }}</label>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+
+        <div class="button-container">
+          <button type="submit" class="btn btn-success">Submit Answers</button>
+          <a href="{% url 'home_view' %}" class="btn btn-secondary">Back to Home</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

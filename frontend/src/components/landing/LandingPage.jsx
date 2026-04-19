@@ -1,0 +1,1402 @@
+import React from 'react';
+import { useState } from 'react';
+import './LandingPage.css';
+
+export default function LandingPage() {
+  const [email, setEmail] = useState('');
+
+  const handleGetStarted = (e) => {
+    e.preventDefault();
+    // Navigate to registration page
+    window.location.hash = 'register';
+  };
+
+  return (
+    <div className="landing-page">
+      {/* Navigation */}
+      <nav className="navbar">
+        <div className="nav-container">
+          <div className="nav-logo">
+            <svg width="50" height="50" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="nav-logo-img">
+              <circle cx="60" cy="60" r="58" fill="url(#navGrad1)"/>
+              <path d="M60 25 L45 55 L75 55 Z" fill="#764ba2"/>
+              <ellipse cx="60" cy="55" rx="15" ry="3" fill="#667eea"/>
+              <circle cx="55" cy="40" r="1.5" fill="#FFD700"/>
+              <circle cx="62" cy="35" r="1" fill="#FFD700"/>
+              <circle cx="60" cy="75" r="15" stroke="#FFFFFF" strokeWidth="5" fill="none"/>
+              <line x1="70" y1="85" x2="75" y2="90" stroke="#FFFFFF" strokeWidth="5" strokeLinecap="round"/>
+              <defs>
+                <linearGradient id="navGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#667eea"/>
+                  <stop offset="100%" stopColor="#764ba2"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <span className="nav-logo-text">Quizzard</span>
+          </div>
+          <div className="nav-links">
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#register" className="nav-btn-signin">Sign In</a>
+            <a href="#register" className="nav-btn-signup">Get Started</a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div className="hero-background">
+          <div className="magic-orb orb-1"></div>
+          <div className="magic-orb orb-2"></div>
+          <div className="magic-orb orb-3"></div>
+        </div>
+        
+        <div className="hero-container">
+          <div className="hero-content">
+            <div className="hero-badge">
+              <span className="badge-icon">✨</span>
+              <span>Master Knowledge Like Magic</span>
+            </div>
+            
+            <h1 className="hero-title">
+              Learn Smarter with
+              <span className="hero-title-gradient"> Magical Quizzes</span>
+            </h1>
+            
+            <p className="hero-subtitle">
+              Transform your learning journey with AI-powered quizzes. 
+              Track progress, compete with friends, and level up your skills in the most engaging way possible.
+            </p>
+            
+            <form className="hero-form" onSubmit={handleGetStarted}>
+              <input 
+                type="email" 
+                placeholder="Enter your email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="hero-input"
+                required
+              />
+              <button type="submit" className="hero-button">
+                Start Your Quest
+                <span className="button-arrow">→</span>
+              </button>
+            </form>
+            
+            <div className="hero-stats">
+              <div className="stat-item">
+                <div className="stat-number">50K+</div>
+                <div className="stat-label">Active Wizards</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-number">1M+</div>
+                <div className="stat-label">Quizzes Completed</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-number">4.9★</div>
+                <div className="stat-label">User Rating</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="hero-image">
+            <div className="phone-mockup">
+              <div className="phone-screen">
+                <div className="quiz-preview">
+                  {/* Quiz Header */}
+                  <div className="quiz-header">
+                    <div className="quiz-score">
+                      <span className="score-label">Score</span>
+                      <span className="score-value">850</span>
+                    </div>
+                    <div className="quiz-timer">
+                      <span className="timer-icon">⏱️</span>
+                      <span className="timer-value">00:45</span>
+                    </div>
+                  </div>
+
+                  {/* Question */}
+                  <div className="quiz-question">
+                    What is the capital of France?
+                  </div>
+
+                  {/* Options */}
+                  <div className="quiz-options">
+                    <div className="quiz-option">London</div>
+                    <div className="quiz-option correct">Paris ✓</div>
+                    <div className="quiz-option">Berlin</div>
+                    <div className="quiz-option">Madrid</div>
+                  </div>
+
+                  {/* Progress Bar */}
+                  <div className="quiz-progress">
+                    <div className="progress-text">Question 3 of 10</div>
+                    <div className="progress-bar">
+                      <div className="progress-fill" style={{ width: '30%' }}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="features-section" id="features">
+        <div className="section-header">
+          <span className="section-badge">Features</span>
+          <h2 className="section-title">Magical Learning Powers</h2>
+          <p className="section-subtitle">
+            Everything you need to master any subject with confidence
+          </p>
+        </div>
+
+        <div className="features-grid">
+          <div className="feature-card">
+            <div className="feature-icon">🎯</div>
+            <h3 className="feature-title">Smart Quizzes</h3>
+            <p className="feature-description">
+              AI-powered questions that adapt to your skill level and learning pace
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon">📊</div>
+            <h3 className="feature-title">Progress Tracking</h3>
+            <p className="feature-description">
+              Visualize your learning journey with detailed analytics and insights
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon">🏆</div>
+            <h3 className="feature-title">Leaderboards</h3>
+            <p className="feature-description">
+              Compete with friends and climb the ranks to become a quiz master
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon">⚡</div>
+            <h3 className="feature-title">Instant Feedback</h3>
+            <p className="feature-description">
+              Get immediate explanations and learn from every answer
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon">🎨</div>
+            <h3 className="feature-title">Custom Quizzes</h3>
+            <p className="feature-description">
+              Create your own quizzes on any topic and share with others
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon">🌍</div>
+            <h3 className="feature-title">Multi-Subject</h3>
+            <p className="feature-description">
+              Master everything from math to history with thousands of topics
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="how-it-works-section" id="how-it-works">
+        <div className="section-header">
+          <span className="section-badge">Simple Process</span>
+          <h2 className="section-title">Start Learning in 3 Easy Steps</h2>
+        </div>
+
+        <div className="steps-container">
+          <div className="step-item">
+            <div className="step-number">1</div>
+            <div className="step-content">
+              <h3 className="step-title">Create Your Account</h3>
+              <p className="step-description">
+                Sign up in seconds and choose your learning path
+              </p>
+            </div>
+          </div>
+
+          <div className="step-connector"></div>
+
+          <div className="step-item">
+            <div className="step-number">2</div>
+            <div className="step-content">
+              <h3 className="step-title">Pick Your Subjects</h3>
+              <p className="step-description">
+                Select topics you want to master and set your goals
+              </p>
+            </div>
+          </div>
+
+          <div className="step-connector"></div>
+
+          <div className="step-item">
+            <div className="step-number">3</div>
+            <div className="step-content">
+              <h3 className="step-title">Start Quizzing</h3>
+              <p className="step-description">
+                Take quizzes, track progress, and level up your knowledge
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className="pricing-section" id="pricing">
+        <div className="section-header">
+          <span className="section-badge">Pricing</span>
+          <h2 className="section-title">Choose Your Magic Level</h2>
+          <p className="section-subtitle">
+            Unlock more powers as you progress on your learning journey
+          </p>
+        </div>
+
+        <div className="pricing-grid">
+          {/* Apprentice Plan */}
+          <div className="pricing-card">
+            <div className="pricing-header">
+              <h3 className="plan-name">Apprentice</h3>
+              <div className="plan-price">
+                <span className="currency">$</span>
+                <span className="amount">0</span>
+                <span className="period">/mo</span>
+              </div>
+              <p className="plan-description">Perfect for starting your journey</p>
+            </div>
+            <ul className="plan-features">
+              <li><span className="feature-check">✓</span> 10 Quizzes per Day</li>
+              <li><span className="feature-check">✓</span> Basic Analytics</li>
+              <li><span className="feature-check">✓</span> Community Support</li>
+              <li className="disabled"><span className="feature-check">✕</span> Custom Quiz Creation</li>
+              <li className="disabled"><span className="feature-check">✕</span> Team Collaboration</li>
+            </ul>
+            <a href="#register" className="pricing-btn">Start Quest</a>
+          </div>
+
+          {/* Wizard Plan - Featured */}
+          <div className="pricing-card featured">
+            <div className="featured-badge">Most Magical</div>
+            <div className="pricing-header">
+              <h3 className="plan-name">Wizard</h3>
+              <div className="plan-price">
+                <span className="currency">$</span>
+                <span className="amount">19</span>
+                <span className="period">/mo</span>
+              </div>
+              <p className="plan-description">For dedicated knowledge seekers</p>
+            </div>
+            <ul className="plan-features">
+              <li><span className="feature-check">✓</span> Unlimited Quizzes</li>
+              <li><span className="feature-check">✓</span> Advanced AI Insights</li>
+              <li><span className="feature-check">✓</span> Priority Support</li>
+              <li><span className="feature-check">✓</span> Custom Quiz Creation</li>
+              <li className="disabled"><span className="feature-check">✕</span> Team Collaboration</li>
+            </ul>
+            <a href="#register" className="pricing-btn featured-btn">Unleash Magic</a>
+          </div>
+
+          {/* Archmage Plan */}
+          <div className="pricing-card">
+            <div className="pricing-header">
+              <h3 className="plan-name">Archmage</h3>
+              <div className="plan-price">
+                <span className="currency">$</span>
+                <span className="amount">49</span>
+                <span className="period">/mo</span>
+              </div>
+              <p className="plan-description">Mastery at an enterprise scale</p>
+            </div>
+            <ul className="plan-features">
+              <li><span className="feature-check">✓</span> Everything in Wizard</li>
+              <li><span className="feature-check">✓</span> Team Analytics</li>
+              <li><span className="feature-check">✓</span> 24/7 Concierge</li>
+              <li><span className="feature-check">✓</span> White-label Options</li>
+              <li><span className="feature-check">✓</span> API Access</li>
+            </ul>
+            <a href="#register" className="pricing-btn">Summon Power</a>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="cta-section">
+        <div className="cta-content">
+          <h2 className="cta-title">Ready to Become a Quiz Master?</h2>
+          <p className="cta-subtitle">
+            Join thousands of learners already mastering their subjects with Quizzard
+          </p>
+          <a href="#register" className="cta-button">
+            Start Learning Free
+            <span className="button-sparkle">✨</span>
+          </a>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="footer">
+        <div className="footer-content">
+          <div className="footer-brand">
+            <svg width="40" height="40" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="footer-logo">
+              <circle cx="60" cy="60" r="58" fill="url(#footerGrad1)"/>
+              <path d="M60 25 L45 55 L75 55 Z" fill="#764ba2"/>
+              <ellipse cx="60" cy="55" rx="15" ry="3" fill="#667eea"/>
+              <circle cx="55" cy="40" r="1.5" fill="#FFD700"/>
+              <circle cx="60" cy="75" r="15" stroke="#FFFFFF" strokeWidth="5" fill="none"/>
+              <line x1="70" y1="85" x2="75" y2="90" stroke="#FFFFFF" strokeWidth="5" strokeLinecap="round"/>
+              <defs>
+                <linearGradient id="footerGrad1">
+                  <stop offset="0%" stopColor="#667eea"/>
+                  <stop offset="100%" stopColor="#764ba2"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <span className="footer-brand-text">Quizzard</span>
+          </div>
+          <p className="footer-copyright">© 2026 Quizzard. All rights reserved.</p>
+        </div>
+      </footer>
+
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        html, body {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          overflow-x: hidden;
+        }
+
+        .landing-page {
+          font-family: 'Outfit', sans-serif;
+          overflow-x: hidden;
+          width: 100%;
+          min-height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          width: 100%;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          z-index: 1000;
+          padding: 1rem 0;
+        }
+
+        .nav-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 2rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .nav-logo {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+        }
+
+        .nav-logo-img {
+          width: 40px;
+          height: 40px;
+          animation: spin 20s linear infinite;
+        }
+
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+
+        .nav-logo-text {
+          font-family: 'Fredoka', sans-serif;
+          font-size: 24px;
+          font-weight: 700;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .nav-links {
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+        }
+
+        .nav-links a {
+          text-decoration: none;
+          color: #4a5568;
+          font-weight: 500;
+          transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+          color: #667eea;
+        }
+
+        .nav-btn-signin {
+          color: #667eea !important;
+          font-weight: 600 !important;
+        }
+
+        .nav-btn-signup {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white !important;
+          padding: 0.6rem 1.5rem;
+          border-radius: 25px;
+          font-weight: 600 !important;
+          transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .nav-btn-signup:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Hero Section */
+        .hero-section {
+          min-height: 100vh;
+          position: relative;
+          overflow: hidden;
+          background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+          width: 100%;
+          padding: 6rem 0 4rem;
+        }
+
+        .hero-container {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 0 4rem;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 3rem;
+          align-items: center;
+          position: relative;
+          z-index: 1;
+        }
+
+        .hero-background {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: 0;
+        }
+
+        .magic-orb {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(80px);
+          opacity: 0.3;
+          animation: float 8s ease-in-out infinite;
+        }
+
+        .orb-1 {
+          width: 500px;
+          height: 500px;
+          background: #667eea;
+          top: -150px;
+          left: -150px;
+        }
+
+        .orb-2 {
+          width: 400px;
+          height: 400px;
+          background: #764ba2;
+          bottom: -100px;
+          right: -100px;
+          animation-delay: 2s;
+        }
+
+        .orb-3 {
+          width: 350px;
+          height: 350px;
+          background: #f093fb;
+          top: 30%;
+          right: -150px;
+          animation-delay: 4s;
+        }
+
+        @keyframes float {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        .hero-content {
+          max-width: 600px;
+          position: relative;
+          z-index: 1;
+        }
+
+        .hero-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          background: white;
+          padding: 0.5rem 1.25rem;
+          border-radius: 25px;
+          font-size: 14px;
+          font-weight: 600;
+          color: #667eea;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+          margin-bottom: 2rem;
+        }
+
+        .badge-icon {
+          font-size: 18px;
+        }
+
+        .hero-title {
+          font-family: 'Fredoka', sans-serif;
+          font-size: 64px;
+          font-weight: 700;
+          line-height: 1.1;
+          color: #2d3748;
+          margin-bottom: 1.5rem;
+        }
+
+        .hero-title-gradient {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .hero-subtitle {
+          font-size: 20px;
+          color: #4a5568;
+          line-height: 1.6;
+          margin-bottom: 2.5rem;
+        }
+
+        .hero-form {
+          display: flex;
+          gap: 1rem;
+          margin-bottom: 3rem;
+        }
+
+        .hero-input {
+          flex: 1;
+          padding: 1rem 1.5rem;
+          border: 2px solid #e2e8f0;
+          border-radius: 12px;
+          font-size: 16px;
+          font-family: 'Outfit', sans-serif;
+          transition: all 0.3s;
+        }
+
+        .hero-input:focus {
+          outline: none;
+          border-color: #667eea;
+          box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .hero-button {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+          border: none;
+          padding: 1rem 2rem;
+          border-radius: 12px;
+          font-size: 16px;
+          font-weight: 600;
+          font-family: 'Fredoka', sans-serif;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          transition: all 0.3s;
+          box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .hero-button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .button-arrow {
+          font-size: 20px;
+          transition: transform 0.3s;
+        }
+
+        .hero-button:hover .button-arrow {
+          transform: translateX(5px);
+        }
+
+        .hero-stats {
+          display: flex;
+          gap: 3rem;
+        }
+
+        .stat-item {
+          text-align: left;
+        }
+
+        .stat-number {
+          font-family: 'Fredoka', sans-serif;
+          font-size: 32px;
+          font-weight: 700;
+          color: #2d3748;
+        }
+
+        .stat-label {
+          font-size: 14px;
+          color: #718096;
+        }
+
+        .hero-image {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          z-index: 1;
+        }
+
+        .phone-mockup {
+          width: 300px;
+          height: 600px;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          border-radius: 40px;
+          padding: 15px;
+          box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+          animation: floatPhone 4s ease-in-out infinite;
+          position: relative;
+        }
+
+        .phone-mockup::before {
+          content: '';
+          position: absolute;
+          top: 10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 80px;
+          height: 25px;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          border-radius: 0 0 20px 20px;
+          z-index: 10;
+        }
+
+        @keyframes floatPhone {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+        }
+
+        .phone-screen {
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+          border-radius: 30px;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+        }
+
+        .phone-screen::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        }
+
+        .quiz-preview {
+          padding: 2rem;
+          width: 100%;
+          position: relative;
+          z-index: 1;
+        }
+
+        .quiz-header {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 1.5rem;
+        }
+
+        .quiz-score {
+          background: white;
+          padding: 0.75rem 1rem;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .score-label {
+          font-size: 10px;
+          color: #718096;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        .score-value {
+          font-family: 'Fredoka', sans-serif;
+          font-size: 18px;
+          font-weight: 700;
+          color: #667eea;
+          margin-top: 2px;
+        }
+
+        .quiz-timer {
+          background: white;
+          padding: 0.75rem 1rem;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .timer-icon {
+          font-size: 16px;
+        }
+
+        .timer-value {
+          font-family: 'Fredoka', sans-serif;
+          font-size: 14px;
+          font-weight: 600;
+          color: #2d3748;
+        }
+
+        .quiz-question {
+          font-family: 'Fredoka', sans-serif;
+          font-size: 18px;
+          font-weight: 700;
+          color: #2d3748;
+          margin-bottom: 1.5rem;
+          text-align: center;
+          background: white;
+          padding: 1.5rem;
+          border-radius: 15px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-options {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .quiz-option {
+          padding: 1rem;
+          background: white;
+          border: 2px solid #e2e8f0;
+          border-radius: 12px;
+          text-align: center;
+          font-weight: 600;
+          color: #4a5568;
+          transition: all 0.3s;
+          cursor: pointer;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .quiz-option:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          border-color: #667eea;
+        }
+
+        .quiz-option.correct {
+          background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+          color: white;
+          border-color: #48bb78;
+          animation: correctAnswer 0.5s ease-in-out;
+        }
+
+        @keyframes correctAnswer {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.05); }
+          100% { transform: scale(1); }
+        }
+
+        .quiz-progress {
+          background: white;
+          padding: 1rem;
+          border-radius: 12px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-text {
+          font-size: 12px;
+          color: #718096;
+          font-weight: 600;
+          text-align: center;
+          margin-bottom: 0.5rem;
+        }
+
+        .progress-bar {
+          height: 8px;
+          background: #e2e8f0;
+          border-radius: 10px;
+          overflow: hidden;
+        }
+
+        .progress-fill {
+          height: 100%;
+          background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+          border-radius: 10px;
+          transition: width 0.3s ease;
+        }
+
+        /* Features Section */
+        .features-section {
+          padding: 6rem 2rem;
+          background: white;
+          width: 100%;
+        }
+
+        .section-header {
+          text-align: center;
+          max-width: 700px;
+          margin: 0 auto 4rem;
+        }
+
+        .section-badge {
+          display: inline-block;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+          padding: 0.5rem 1.25rem;
+          border-radius: 25px;
+          font-size: 14px;
+          font-weight: 600;
+          margin-bottom: 1rem;
+        }
+
+        .section-title {
+          font-family: 'Fredoka', sans-serif;
+          font-size: 48px;
+          font-weight: 700;
+          color: #2d3748;
+          margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+          font-size: 18px;
+          color: #718096;
+          line-height: 1.6;
+        }
+
+        .features-grid {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 2rem;
+        }
+
+        .feature-card {
+          background: #f7fafc;
+          padding: 2.5rem;
+          border-radius: 20px;
+          text-align: center;
+          transition: all 0.3s;
+          border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+          transform: translateY(-5px);
+          border-color: #667eea;
+          box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .feature-icon {
+          font-size: 48px;
+          margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+          font-family: 'Fredoka', sans-serif;
+          font-size: 24px;
+          font-weight: 600;
+          color: #2d3748;
+          margin-bottom: 1rem;
+        }
+
+        .feature-description {
+          font-size: 16px;
+          color: #718096;
+          line-height: 1.6;
+        }
+
+        /* How It Works Section */
+        .how-it-works-section {
+          padding: 6rem 2rem;
+          background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+          width: 100%;
+        }
+
+        .steps-container {
+          max-width: 900px;
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 2rem;
+        }
+
+        .step-item {
+          flex: 1;
+          text-align: center;
+        }
+
+        .step-number {
+          width: 80px;
+          height: 80px;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: 'Fredoka', sans-serif;
+          font-size: 32px;
+          font-weight: 700;
+          margin: 0 auto 1.5rem;
+          box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .step-title {
+          font-family: 'Fredoka', sans-serif;
+          font-size: 24px;
+          font-weight: 600;
+          color: #2d3748;
+          margin-bottom: 0.75rem;
+        }
+
+        .step-description {
+          font-size: 16px;
+          color: #718096;
+          line-height: 1.6;
+        }
+
+        .step-connector {
+          width: 80px;
+          height: 2px;
+          background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+          margin-top: -100px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+          padding: 6rem 2rem;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          text-align: center;
+          width: 100%;
+        }
+
+        .cta-content {
+          max-width: 700px;
+          margin: 0 auto;
+        }
+
+        .cta-title {
+          font-family: 'Fredoka', sans-serif;
+          font-size: 48px;
+          font-weight: 700;
+          color: white;
+          margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+          font-size: 20px;
+          color: rgba(255, 255, 255, 0.9);
+          margin-bottom: 2.5rem;
+          line-height: 1.6;
+        }
+
+        .cta-button {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.75rem;
+          background: white;
+          color: #667eea;
+          padding: 1.25rem 3rem;
+          border-radius: 50px;
+          font-size: 18px;
+          font-weight: 600;
+          font-family: 'Fredoka', sans-serif;
+          text-decoration: none;
+          transition: all 0.3s;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .button-sparkle {
+          font-size: 24px;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+          padding: 8rem 2rem;
+          background: #ffffff;
+          width: 100%;
+        }
+
+        .pricing-grid {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 2.5rem;
+          padding: 1rem;
+        }
+
+        .pricing-card {
+          background: #fdfdff;
+          border-radius: 30px;
+          padding: 3rem 2.5rem;
+          text-align: center;
+          position: relative;
+          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          border: 1px solid rgba(0, 0, 0, 0.05);
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+
+        .pricing-card:hover {
+          transform: translateY(-15px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-card.featured {
+          background: white;
+          border: 2px solid #667eea;
+          transform: scale(1.05);
+          z-index: 2;
+          box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+        }
+
+        .pricing-card.featured:hover {
+          transform: translateY(-15px) scale(1.05);
+          box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3);
+        }
+
+        .featured-badge {
+          position: absolute;
+          top: -15px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+          padding: 0.5rem 1.5rem;
+          border-radius: 20px;
+          font-size: 14px;
+          font-weight: 700;
+          box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .plan-name {
+          font-family: 'Fredoka', sans-serif;
+          font-size: 24px;
+          font-weight: 700;
+          color: #2d3748;
+          margin-bottom: 1.5rem;
+        }
+
+        .plan-price {
+          margin-bottom: 1rem;
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+        }
+
+        .currency {
+          font-size: 24px;
+          font-weight: 600;
+          color: #4a5568;
+        }
+
+        .amount {
+          font-family: 'Fredoka', sans-serif;
+          font-size: 56px;
+          font-weight: 700;
+          color: #2d3748;
+        }
+
+        .period {
+          font-size: 18px;
+          color: #718096;
+        }
+
+        .plan-description {
+          color: #718096;
+          font-size: 16px;
+          margin-bottom: 2rem;
+        }
+
+        .plan-features {
+          list-style: none;
+          text-align: left;
+          margin-bottom: 3rem;
+          flex-grow: 1;
+        }
+
+        .plan-features li {
+          margin-bottom: 1rem;
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          color: #4a5568;
+          font-weight: 500;
+        }
+
+        .plan-features li.disabled {
+          color: #a0aec0;
+          text-decoration: line-through;
+          opacity: 0.7;
+        }
+
+        .feature-check {
+          color: #667eea;
+          font-weight: 700;
+        }
+
+        .pricing-card.featured .feature-check {
+          color: #764ba2;
+        }
+
+        .pricing-btn {
+          display: block;
+          padding: 1.25rem 2rem;
+          border-radius: 15px;
+          text-decoration: none;
+          font-family: 'Fredoka', sans-serif;
+          font-weight: 700;
+          font-size: 18px;
+          transition: all 0.3s;
+          background: #f7fafc;
+          color: #4a5568;
+          border: 1px solid #e2e8f0;
+        }
+
+        .pricing-btn:hover {
+          background: #edf2f7;
+          transform: scale(1.02);
+        }
+
+        .featured-btn {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+          border: none;
+          box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .featured-btn:hover {
+          background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+          box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        /* Footer */
+        .footer {
+          background: #1a202c;
+          padding: 3rem 2rem;
+          text-align: center;
+          width: 100%;
+        }
+
+        .footer-content {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+
+        .footer-brand {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.75rem;
+          margin-bottom: 1rem;
+        }
+
+        .footer-logo {
+          width: 40px;
+          height: 40px;
+        }
+
+        .footer-brand-text {
+          font-family: 'Fredoka', sans-serif;
+          font-size: 24px;
+          font-weight: 700;
+          color: white;
+        }
+
+        .footer-copyright {
+          color: #a0aec0;
+          font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+          .hero-container {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 0 2rem;
+          }
+
+          .hero-content {
+            max-width: 100%;
+            text-align: center;
+          }
+
+          .hero-badge {
+            justify-content: center;
+          }
+
+          .hero-stats {
+            justify-content: center;
+          }
+
+          .hero-image {
+            order: 2;
+          }
+
+          .phone-mockup {
+            width: 280px;
+            height: 560px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .nav-links a:not(.nav-btn-signin):not(.nav-btn-signup) {
+            display: none;
+          }
+
+          .hero-section {
+            padding-top: 8rem;
+            min-height: auto;
+          }
+
+          .hero-container {
+            padding: 0 2rem;
+          }
+
+          .hero-title {
+            font-size: 40px;
+          }
+
+          .hero-subtitle {
+            font-size: 16px;
+          }
+
+          .hero-form {
+            flex-direction: column;
+          }
+
+          .hero-stats {
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+          }
+
+          .hero-image {
+            margin-top: 2rem;
+          }
+
+          .phone-mockup {
+            width: 250px;
+            height: 500px;
+          }
+
+          .quiz-question {
+            font-size: 16px;
+            padding: 1.25rem;
+          }
+
+          .quiz-option {
+            padding: 0.875rem;
+            font-size: 14px;
+          }
+
+          .section-title {
+            font-size: 36px;
+          }
+
+          .steps-container {
+            flex-direction: column;
+          }
+
+          .step-connector {
+            width: 2px;
+            height: 80px;
+            margin: 0;
+          }
+
+          .cta-title {
+            font-size: 36px;
+          }
+
+          .features-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .hero-container {
+            padding: 0 1.5rem;
+          }
+
+          .hero-title {
+            font-size: 32px;
+          }
+
+          .hero-subtitle {
+            font-size: 14px;
+          }
+
+          .phone-mockup {
+            width: 220px;
+            height: 440px;
+          }
+
+          .quiz-preview {
+            padding: 1.5rem;
+          }
+
+          .quiz-header {
+            flex-wrap: wrap;
+            gap: 0.5rem;
+          }
+
+          .section-title {
+            font-size: 28px;
+          }
+
+          .cta-title {
+            font-size: 28px;
+          }
+        }
+      `}</style>
+    </div>
+  );
+}
